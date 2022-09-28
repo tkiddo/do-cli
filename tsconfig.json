@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "outDir": "lib"
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2015",
+    "module": "ESNext",
+    "moduleResolution": "node"
   }
 }
