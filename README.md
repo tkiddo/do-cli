@@ -121,7 +121,7 @@ module.exports = {
 - ### jest
 
 ```shell
-npm install jest @babel/preset-env -D
+npm install jest @babel/preset-env @babel/preset-typescript -D
 ```
 
 add .babelrc
@@ -136,9 +136,11 @@ add .babelrc
           "node": "current"
         }
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ]
 }
+
 ```
 
 at last, start coding.
