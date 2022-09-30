@@ -144,3 +144,7 @@ add .babelrc
 ```
 
 at last, start coding.
+
+## attention
+
+- 因为使用typescript，chalk需要用4.x版本
