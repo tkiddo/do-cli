@@ -19,7 +19,7 @@ export const copyContent = async (source: string) => {
   return await copyToClipboard(content)
 }
 
-export const copyPath = async () => {
+export const copyCurrentPath = async () => {
   const url = path.resolve(process.cwd())
   return await copyToClipboard(url)
 }
