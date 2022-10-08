@@ -6,7 +6,7 @@ import chalk from 'chalk'
 import { cwd } from '../utils/common'
 
 export const copyToClipboard = (content: string) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     exec('clip').stdin.end(iconv.encode(content, 'gbk'), () => {
       console.log(chalk.green('copy success'))
       resolve(content)
@@ -30,4 +30,11 @@ export const readAndCopy = async (source: string) => {
 export const copyCurrentPath = async () => {
   const url = path.resolve(process.cwd())
   return await copyToClipboard(url)
+}
+
+export const copyFile = async (source: string, target: string) => {
+  const content = readFile(source)
+  fs.writeFileSync(path.resolve(cwd(), target), content)
+  console.log(chalk.green('copy file success'))
+  return content
 }
