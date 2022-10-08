@@ -1,5 +1,3 @@
-import path from 'path'
-
-export const pwd = () => {
-  return path.resolve(process.cwd())
+export const cwd = () => {
+  return process.cwd()
 }

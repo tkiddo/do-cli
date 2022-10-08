@@ -3,6 +3,7 @@ import path from 'path'
 import { exec } from 'child_process'
 import iconv from 'iconv-lite'
 import chalk from 'chalk'
+import { cwd } from '../utils/common'
 
 export const copyToClipboard = (content: string) => {
   return new Promise((resolve, reject) => {
@@ -13,9 +14,16 @@ export const copyToClipboard = (content: string) => {
   })
 }
 
-export const copyContent = async (source: string) => {
-  const buffer = fs.readFileSync(path.resolve(process.cwd(), source))
+export const readFile = (source: string) => {
+  const buffer = fs.readFileSync(path.resolve(cwd(), source))
   const content = buffer.toString()
+  console.log(chalk.green('read file success'))
+  console.log(`content: ${content}`)
+  return content
+}
+
+export const readAndCopy = async (source: string) => {
+  const content = readFile(source)
   return await copyToClipboard(content)
 }
 

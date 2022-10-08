@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { version, name, description } from '../package.json'
-import { copyContent, copyPath } from './file'
+import { readFile, readAndCopy, copyCurrentPath } from './file'
 
 const program = new Command()
 
@@ -10,21 +10,30 @@ program.command('welcome').action(() => {
   console.log('welcome to do-cli')
 })
 
-// 复制文件内容
+// 读取文件内容
 program
-  .command('clip-content')
-  .description('copy file content to clipboard')
-  .argument('<file>', 'file to copy')
-  .action((file) => {
-    copyContent(file)
+  .command('read')
+  .description('read file content')
+  .argument('<source>', 'source file')
+  .action((source) => {
+    readFile(source)
   })
 
-// 复制文件路径
+// 复制文件内容
+program
+  .command('rc')
+  .description('read and clip file content to clipboard')
+  .argument('<source>', 'source file')
+  .action((source) => {
+    readAndCopy(source)
+  })
+
+// 复制当前路径
 program
   .command('clip-path')
-  .description('copy file path to clipboard')
+  .description('copy current path to clipboard')
   .action(() => {
-    copyPath()
+    copyCurrentPath()
   })
 
 program.parse()

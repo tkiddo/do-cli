@@ -1,9 +1,9 @@
-import { copyContent, copyCurrentPath } from '../index'
+import { readAndCopy, copyCurrentPath } from '../index'
 import path from 'path'
 
 describe('file operation', () => {
   test('copy file content', async () => {
-    const content = await copyContent('./src/file/__test__/file.txt')
+    const content = await readAndCopy('./assets/file.txt')
     expect(content).toEqual('哈哈')
   })
   test('copy current path', async () => {
