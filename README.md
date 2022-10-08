@@ -1,6 +1,6 @@
 # do-cli
 
-## develop trail
+## develop
 
 - ### init 
 
@@ -148,3 +148,30 @@ at last, start coding.
 ## attention
 
 - 因为使用typescript，chalk需要用4.x版本
+
+
+## usage
+
+- ### read
+
+read file
+
+```shell
+do read <source>
+```
+
+- ### rc
+
+read and clip content to clipboard
+
+```shell
+do rc <source>
+```
+
+- ### clip-path
+
+clip current path to clipboard
+
+```shell
+do clip-path
+```
