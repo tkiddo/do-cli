@@ -14,11 +14,13 @@ export const copyToClipboard = (content: string) => {
   })
 }
 
-export const readFile = (source: string) => {
+export const readFile = (source: string, log = false) => {
   const buffer = fs.readFileSync(path.resolve(cwd(), source))
   const content = buffer.toString()
-  console.log(chalk.green('read file success'))
-  console.log(`content: ${content}`)
+  if (log) {
+    console.log(chalk.green('read file success'))
+    console.log(`content: ${content}`)
+  }
   return content
 }
 
@@ -36,5 +38,4 @@ export const copyFile = async (source: string, target: string) => {
   const content = readFile(source)
   fs.writeFileSync(path.resolve(cwd(), target), content)
   console.log(chalk.green('copy file success'))
-  return content
 }

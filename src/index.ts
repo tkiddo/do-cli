@@ -16,7 +16,7 @@ program
   .description('read file content')
   .argument('<source>', 'source file')
   .action((source) => {
-    readFile(source)
+    readFile(source, true)
   })
 
 // 复制文件内容
